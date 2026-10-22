@@ -1,0 +1,287 @@
+//- Pug Ensino · Mascote "Caramelo Intelectual"
+//- Vira-lata caramelo brasileiro de terno, gravata e óculos.
+//- Flat design · sem gradientes · só caramelo
+//- Compile com: npx pug index.pug
+
+mixin mascot(options)
+  - const opts = Object.assign({ size: 200, expression: 'happy', cls: '' }, options || {})
+  - const c = { base: '#d99a5c', dark: '#b87838', light: '#f0d4b0', nose: '#3a2418', eye: '#faf8f5', pupil: '#2a1a10', glasses: '#2a2420', suit: '#3e2e24', suitDark: '#2a1a12', shirt: '#f5f0e6', collar: '#e8e0d0', tie: '#8b2a2a', tieKnot: '#6b1a1a', tongue: '#e87a80' }
+  - const expr = { happy: { px: 0, py: 0, mouth: 'M178 245 Q200 260 222 245', tongue: true, browY: 0 }, serious: { px: 0, py: 0, mouth: 'M182 250 L218 250', tongue: false, browY: -2 }, thinking: { px: 4, py: -2, mouth: 'M180 252 Q200 242 220 252', tongue: false, browY: -4 } }
+  - const e = expr[opts.expression] || expr.happy
+  - const lpx = 162 + e.px
+  - const lpy = 150 + e.py
+  - const rpx = 238 + e.px
+  - const rpy = 150 + e.py
+  - const lb = 118 + e.browY
+
+  svg(
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 400 400"
+    width=opts.size
+    height=opts.size
+    class=opts.cls
+    role="img"
+    aria-label="Caramelo vira-lata intelectual de terno, gravata e óculos de leitura"
+  )
+    //- ===== TERNO =====
+    //- Paletó
+    path(d="M70 400 Q70 290 160 265 L240 265 Q330 290 330 400 Z" fill=c.suit)
+
+    //- Camisa (V)
+    path(d="M170 275 L200 385 L230 275 Z" fill=c.shirt)
+
+    //- Colarinho
+    path(d="M175 277 L200 292 L185 305 Z" fill=c.collar)
+    path(d="M225 277 L200 292 L215 305 Z" fill=c.collar)
+
+    //- Nó da gravata
+    path(d="M192 295 L200 289 L208 295 L200 307 Z" fill=c.tieKnot)
+
+    //- Gravata
+    path(d="M195 307 L205 307 L210 365 L200 375 L190 365 Z" fill=c.tie)
+
+    //- Botão do paletó
+    circle(cx="200" cy="392" r="3" fill=c.suitDark)
+
+    //- ===== ORELHAS =====
+    path(d="M108 135 Q92 65 120 52 Q148 65 155 120 Z" fill=c.dark)
+    path(d="M122 128 Q114 88 126 76 Q140 88 144 122 Z" fill=c.base)
+    path(d="M292 135 Q332 108 335 152 Q328 195 292 180 Q278 158 285 138 Z" fill=c.dark)
+    path(d="M296 145 Q318 132 320 155 Q315 180 296 172 Q288 158 292 145 Z" fill=c.base)
+
+    //- ===== CABEÇA =====
+    ellipse(cx="200" cy="175" rx="100" ry="95" fill=c.base)
+
+    //- Tufo de pelo no topo
+    path(d="M185 80 Q195 62 203 80 Q210 64 217 82" stroke=c.dark stroke-width="2" fill="none" stroke-linecap="round")
+
+    //- ===== FOCINHO =====
+    ellipse(cx="200" cy="225" rx="52" ry="38" fill=c.light)
+
+    //- ===== NARIZ =====
+    path(d="M186 205 Q200 195 214 205 Q214 218 200 220 Q186 218 186 205 Z" fill=c.nose)
+    ellipse(cx="194" cy="205" rx="3" ry="2" fill="#8a7058")
+
+    //- ===== BOCA =====
+    path(d=e.mouth stroke=c.nose stroke-width="2.5" fill="none" stroke-linecap="round")
+    if e.tongue
+      path(d="M193 256 Q195 268 200 270 Q205 268 207 256 Z" fill=c.tongue)
+
+    //- ===== OLHOS =====
+    circle(cx="162" cy="150" r="20" fill=c.eye)
+    circle(cx="238" cy="150" r="20" fill=c.eye)
+    circle(cx=lpx cy=lpy r="11" fill=c.pupil)
+    circle(cx=rpx cy=rpy r="11" fill=c.pupil)
+    circle(cx=lpx - 4 cy=lpy - 4 r="3.5" fill="white")
+    circle(cx=rpx - 4 cy=rpy - 4 r="3.5" fill="white")
+
+    //- ===== SOBRANCELHAS =====
+    path(d="M148 " + lb + " Q155 " + (lb - 6) + " 164 " + (lb - 2) stroke=c.dark stroke-width="4" stroke-linecap="round" fill="none")
+    path(d="M236 " + (lb - 2) + " Q245 " + (lb - 6) + " 252 " + lb stroke=c.dark stroke-width="4" stroke-linecap="round" fill="none")
+
+    //- ===== ÓCULOS =====
+    circle(cx="162" cy="150" r="23" fill="none" stroke=c.glasses stroke-width="3")
+    circle(cx="238" cy="150" r="23" fill="none" stroke=c.glasses stroke-width="3")
+    path(d="M185 148 Q200 138 215 148" fill="none" stroke=c.glasses stroke-width="3" stroke-linecap="round")
+    path(d="M139 150 L108 143" stroke=c.glasses stroke-width="3" stroke-linecap="round")
+    path(d="M261 150 L292 143" stroke=c.glasses stroke-width="3" stroke-linecap="round")
+    path(d="M148 140 Q154 134 164 136" stroke="white" stroke-width="2" fill="none" opacity="0.35" stroke-linecap="round")
+    path(d="M224 140 Q230 134 240 136" stroke="white" stroke-width="2" fill="none" opacity="0.35" stroke-linecap="round")
+
+//- CENA · Caramelo estudioso em frente ao quadro negro
+mixin mascot-scene(options)
+  - const opts = Object.assign({ size: 460, expression: 'happy', cls: '' }, options || {})
+
+  svg(
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 500 500"
+    width=opts.size
+    height=opts.size
+    class=opts.cls
+    role="img"
+    aria-label="Caramelo intelectual em frente a um quadro negro com giz, fórmulas e livros"
+  )
+    //- Sombra no chão
+    ellipse(cx="250" cy="470" rx="215" ry="20" fill="#000" opacity="0.35")
+
+    //- ===== QUADRO NEGRO =====
+    //- Moldura de madeira
+    rect(x="50" y="25" width="400" height="310" rx="5" fill="#6b4423")
+    rect(x="50" y="25" width="400" height="310" rx="5" fill="none" stroke="#4a2e14" stroke-width="2.5")
+    rect(x="56" y="31" width="388" height="298" rx="3" fill="none" stroke="#8a5e33" stroke-width="1" opacity="0.6")
+
+    //- Superfície verde-escura do quadro
+    rect(x="62" y="37" width="376" height="286" rx="2" fill="#1f2e1d")
+    rect(x="62" y="37" width="376" height="60" rx="2" fill="#2a3d27" opacity="0.4")
+
+    //- Assinatura "Pug Ensino" a giz
+    text(x="85" y="58" fill="#d99a5c" font-family="Georgia, serif" font-size="16" font-style="italic" font-weight="bold") Pug Ensino
+
+    //- Fórmulas de giz
+    text(x="85" y="100" fill="#e8e8dd" font-family="Georgia, serif" font-size="26" font-style="italic" font-weight="600") E = mc²
+    text(x="85" y="138" fill="#e8e8dd" font-family="Georgia, serif" font-size="22" font-style="italic") a² + b² = c²
+    text(x="85" y="172" fill="#e8e8dd" font-family="Georgia, serif" font-size="20" font-style="italic") y = mx + b
+    text(x="85" y="202" fill="#e8e8dd" font-family="Georgia, serif" font-size="18" font-style="italic") √2 ≈ 1.414
+
+    //- Gráfico a giz (eixos + curva)
+    path(d="M275 200 L275 105 M275 200 L435 200" stroke="#e8e8dd" stroke-width="1.5" fill="none" opacity="0.55" stroke-linecap="round")
+    path(d="M275 195 Q305 195 330 180 Q365 155 390 135 Q415 118 432 112" stroke="#e8c870" stroke-width="2.5" fill="none" stroke-linecap="round")
+
+    //- Átomo a giz
+    circle(cx="355" cy="75" r="20" fill="none" stroke="#e8e8dd" stroke-width="1.5" opacity="0.55")
+    ellipse(cx="355" cy="75" rx="20" ry="8" fill="none" stroke="#e8e8dd" stroke-width="1.2" opacity="0.45" transform="rotate(30 355 75)")
+    ellipse(cx="355" cy="75" rx="20" ry="8" fill="none" stroke="#e8e8dd" stroke-width="1.2" opacity="0.45" transform="rotate(-30 355 75)")
+
+    //- Lâmpada a giz (ideia!)
+    g(stroke="#e8c870" stroke-width="2" fill="none" opacity="0.85" stroke-linecap="round" stroke-linejoin="round")
+      path(d="M228 258 Q228 244 240 244 Q252 244 252 258 Q252 268 240 273 Q228 268 228 258 Z")
+      path(d="M234 273 L246 273")
+      path(d="M235 278 L245 278")
+      path(d="M240 232 L240 226")
+      path(d="M226 240 L221 235")
+      path(d="M254 240 L259 235")
+
+    //- ===== TÁBUA DE GIZ =====
+    rect(x="50" y="335" width="400" height="14" rx="2" fill="#5a3a1e")
+    rect(x="50" y="335" width="400" height="3" fill="#7a5a3e" opacity="0.7")
+    //- Gizes
+    rect(x="52" y="330" width="20" height="6" rx="2" fill="#f0ede0")
+    rect(x="74" y="330" width="20" height="6" rx="2" fill="#f0ede0")
+    rect(x="96" y="330" width="20" height="6" rx="2" fill="#f0ede0")
+    rect(x="118" y="330" width="18" height="6" rx="2" fill="#e8c870")
+    //- Apagador
+    rect(x="384" y="325" width="48" height="14" rx="2" fill="#2a1a10")
+    rect(x="386" y="327" width="44" height="6" rx="1" fill="#6a4a30")
+    rect(x="386" y="333" width="44" height="5" rx="1" fill="#8a6a50")
+
+    //- ===== LIVROS (esquerda) =====
+    rect(x="8" y="444" width="72" height="16" rx="2" fill="#8b2a2a")
+    rect(x="10" y="448" width="68" height="6" fill="#a83a3a")
+    rect(x="12" y="428" width="66" height="16" rx="2" fill="#3e5e3a")
+    rect(x="14" y="432" width="62" height="6" fill="#4e6e4a")
+    rect(x="16" y="412" width="58" height="16" rx="2" fill="#2a4a6a")
+    rect(x="18" y="416" width="54" height="6" fill="#3a5a7a")
+    rect(x="20" y="396" width="50" height="16" rx="2" fill="#6b4423")
+    rect(x="22" y="400" width="46" height="6" fill="#8b6443")
+
+    //- ===== LIVROS (direita) =====
+    rect(x="420" y="444" width="72" height="16" rx="2" fill="#6a4a30")
+    rect(x="422" y="448" width="68" height="6" fill="#7a5a40")
+    rect(x="418" y="428" width="66" height="16" rx="2" fill="#8b2a2a")
+    rect(x="420" y="432" width="62" height="6" fill="#a83a3a")
+    rect(x="416" y="412" width="58" height="16" rx="2" fill="#3e5e3a")
+    rect(x="418" y="416" width="54" height="6" fill="#4e6e4a")
+    rect(x="414" y="396" width="50" height="16" rx="2" fill="#6a4a30")
+    rect(x="416" y="400" width="46" height="6" fill="#8a6040")
+
+    //- ===== MASCOTE =====
+    g(transform="translate(120 230) scale(0.65)")
+      +mascot({ size: 400, expression: opts.expression })
+
+//- ============================================================
+//- FAVICON
+//- ============================================================
+mixin mascot-favicon()
+  svg(
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 32"
+    width="32"
+    height="32"
+    role="img"
+    aria-label="Pug Ensino"
+  )
+    rect(width="32" height="32" rx="6" fill="#14110c")
+    //- Paletó
+    path(d="M6 32 Q6 26 13 24 L19 24 Q26 26 26 32 Z" fill="#3e2e24")
+    //- Camisa
+    path(d="M13 26 L16 30 L19 26 Z" fill="#f5f0e6")
+    //- Gravata
+    path(d="M15 27 L17 27 L17.5 32 L16 32 L14.5 32 Z" fill="#8b2a2a")
+    //- Cabeça
+    circle(cx="16" cy="14" r="9" fill="#d99a5c")
+    //- Focinho
+    ellipse(cx="16" cy="17" rx="5" ry="4" fill="#f0d4b0")
+    //- Nariz
+    circle(cx="16" cy="16" r="1.5" fill="#3a2418")
+    //- Olhos
+    circle(cx="13" cy="13" r="2" fill="#faf8f5")
+    circle(cx="19" cy="13" r="2" fill="#faf8f5")
+    circle(cx="13" cy="13" r="1" fill="#2a1a10")
+    circle(cx="19" cy="13" r="1" fill="#2a1a10")
+    //- Óculos
+    circle(cx="13" cy="13" r="3" fill="none" stroke="#2a2420" stroke-width="1")
+    circle(cx="19" cy="13" r="3" fill="none" stroke="#2a2420" stroke-width="1")
+    //- Orelhas
+    path(d="M8 10 Q6 5 9 4 Q11 6 11 10 Z" fill="#b87838")
+    path(d="M24 10 Q27 6 25 5 Q23 7 22 10 Z" fill="#b87838")
+
+//- ============================================================
+//- DEMO
+//- ============================================================
+doctype html
+html(lang="pt-BR")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Pug Ensino · Caramelo Estudioso
+    script(src="https://cdn.tailwindcss.com")
+    style.
+      body { background: #0a0a0b; color: #e4e4e7; font-family: system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+      .mascot-glow { filter: drop-shadow(0 0 40px rgba(217,154,92,0.25)); }
+      .grid-mascots { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; }
+      .cell { text-align: center; padding: 1.25rem; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; background: #14141a; transition: all 0.2s; }
+      .cell:hover { border-color: rgba(217,154,92,0.4); transform: translateY(-2px); }
+      .label { font-family: ui-monospace, monospace; font-size: 11px; color: #a1a1aa; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.85rem; }
+      .label strong { color: #d99a5c; font-weight: 600; }
+
+  body.p-8.max-w-6xl.mx-auto
+    header.text-center.mb-20
+      div.inline-block.mb-6
+        +mascot-scene({ size: 420, cls: 'mascot-glow' })
+      h1.text-5xl.font-bold.mb-3
+        | Pug
+        span(style="color: #d99a5c")  Ensino
+      p.text-lg(style="color: #a1a1aa") Caramelo vira-lata de terno, gravata e óculos.
+      p.text-sm.mt-2(style="color: #71717a") No quadro negro, entre livros e giz — o cachorro mais estudioso do Brasil.
+
+    h2.text-2xl.font-bold.mb-2 As três expressões
+    p.text-sm.mb-6(style="color: #71717a") Só caramelo + terno chocolate + gravata vinho. Sem louro, sem pergaminho.
+
+    div.grid-mascots
+      div.cell
+        +mascot({ size: 180, expression: 'happy' })
+        div.label #[strong caramelo] · happy
+      div.cell
+        +mascot({ size: 180, expression: 'serious' })
+        div.label #[strong caramelo] · serious
+      div.cell
+        +mascot({ size: 180, expression: 'thinking' })
+        div.label #[strong caramelo] · thinking
+
+    h2.text-2xl.font-bold.mb-2.mt-16 No quadro negro
+    p.text-sm.mb-6(style="color: #71717a") O caramelo em seu habitat natural: giz, fórmulas e livros.
+
+    div.grid-mascots
+      div.cell
+        +mascot-scene({ size: 260, expression: 'happy' })
+        div.label #[strong quadro] · happy
+      div.cell
+        +mascot-scene({ size: 260, expression: 'serious' })
+        div.label #[strong quadro] · serious
+      div.cell
+        +mascot-scene({ size: 260, expression: 'thinking' })
+        div.label #[strong quadro] · thinking
+
+    h2.text-2xl.font-bold.mb-2.mt-16 Favicon (32×32)
+    p.text-sm.mb-6(style="color: #71717a") Versão simplificada com paletó e gravata — legível em 16px.
+
+    div.flex.items-center.gap-6
+      div(style="background: #14141a; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.25rem")
+        +mascot-favicon()
+      div
+        p.text-sm(style="color: #a1a1aa")
+          | Para usar como favicon, adicione no
+          code(style="color: #d99a5c")  head
+          | :
+        pre.mt-2.p-3.rounded-lg.text-xs(style="background: #0f0f14; border: 1px solid rgba(255,255,255,0.08); color: #a1a1aa")
+          | link(rel="icon" type="image/svg+xml" href="./mascot-favicon.svg")

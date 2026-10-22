@@ -1,0 +1,259 @@
+//- index.pug — A História Real dos Agentes de IA
+doctype html
+html(lang="pt-BR")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title A História Real dos Agentes de IA — De Dartmouth a Dreaming
+    script(src="https://cdn.tailwindcss.com")
+    link(rel="stylesheet", href="https://unpkg.com/aos@next/dist/aos.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap")
+    style.
+      :root { --brand: #ff5a50; --accent: #00e5cc; --bg: #050810; }
+      html { scroll-behavior: smooth; }
+      body { background: var(--bg); color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+      .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+      .bg-grid { background-image: linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px); background-size: 44px 44px; }
+      .text-gradient { background: linear-gradient(135deg, #ff5a50 0%, #00e5cc 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      @keyframes float { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(40px,-40px) scale(1.15); } }
+      .blob { animation: float 14s ease-in-out infinite; filter: blur(70px); }
+      .blob-delay { animation-delay: -7s; }
+      .timeline { position: relative; }
+      .timeline::before { content: ''; position: absolute; left: 1.5rem; top: 3rem; bottom: 3rem; width: 2px; background: linear-gradient(to bottom, var(--brand), var(--accent), transparent); opacity: .55; }
+      @media (min-width: 768px) { .timeline::before { left: 50%; transform: translateX(-50%); } }
+      @keyframes dotPulse { 0%,100% { box-shadow: 0 0 0 5px var(--bg), 0 0 24px var(--accent); } 50% { box-shadow: 0 0 0 5px var(--bg), 0 0 36px var(--accent); } }
+      .timeline-dot { position: absolute; left: 1.5rem; top: 2rem; transform: translateX(-50%); width: 14px; height: 14px; border-radius: 9999px; background: var(--accent); z-index: 10; animation: dotPulse 3s ease-in-out infinite; }
+      @media (min-width: 768px) { .timeline-dot { left: 50%; } }
+      .card { background: rgba(15,23,42,.55); backdrop-filter: blur(10px); border: 1px solid rgba(51,65,85,.8); border-radius: 16px; transition: all .3s ease; }
+      .card:hover { border-color: rgba(0,229,204,.4); box-shadow: 0 8px 40px -8px rgba(0,229,204,.2); transform: translateY(-2px); }
+      .card-featured { background: linear-gradient(135deg, rgba(15,23,42,.9), rgba(30,41,59,.7)); border: 1px solid rgba(0,229,204,.25); box-shadow: 0 0 60px -15px rgba(0,229,204,.3); }
+      .mascot-img { filter: drop-shadow(0 0 20px rgba(255,90,80,.4)); transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+      .mascot-img:hover { transform: scale(1.1) rotate(-3deg); }
+      .btn-brand { background: #ff5a50; color: #fff; box-shadow: 0 10px 30px -8px rgba(255,90,80,.6); }
+      .btn-brand:hover { background: #e0453b; box-shadow: 0 14px 40px -8px rgba(255,90,80,.8); transform: scale(1.05); }
+      .badge { border: 1px solid rgba(51,65,85,.6); background: rgba(15,23,42,.4); backdrop-filter: blur(8px); }
+      .ref-item { transition: all .25s ease; }
+      .ref-item:hover { border-color: rgba(0,229,204,.35); background: rgba(15,23,42,.6); }
+      .hero-grad { background: linear-gradient(to bottom, #020617, rgba(2,6,23,.9), #0f172a); }
+      .section-label { color: #00e5cc; letter-spacing: .3em; font-size: .75rem; font-weight: 600; }
+
+  body(class="bg-grid")
+    //- ═══════ HEADER ═══════
+    header(class="relative min-h-screen flex items-center justify-center overflow-hidden px-6")
+      div(class="absolute inset-0 hero-grad")
+      div(class="absolute top-10 left-10 w-72 h-72 rounded-full opacity-20 blob", style="background:#ff5a50")
+      div(class="absolute bottom-10 right-10 w-96 h-96 rounded-full opacity-15 blob blob-delay", style="background:#00e5cc")
+
+      div(class="relative z-10 max-w-4xl text-center")
+        span(class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono text-slate-300 mb-8 badge", data-aos="fade-down")
+          span(class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse")
+          | 1956 → 2026 · A evolução técnica dos agentes
+
+        h1(class="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight", data-aos="fade-up")
+          span(class="text-white") A História Real dos
+          br
+          span(class="text-gradient") Agentes de IA
+
+        p(class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed", data-aos="fade-up", data-aos-delay="150")
+          | De Dartmouth aos sistemas de memória consolidada: como a ideia de entidades autônomas evoluiu de demônios paralelos a arquiteturas de Dreaming e REM.
+
+        a(href="#timeline", class="btn-brand inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold transition-all", data-aos="fade-up", data-aos-delay="300")
+          | Ver Linha do Tempo
+          i(class="fa-solid fa-arrow-down")
+
+      div(class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-500")
+        i(class="fa-solid fa-chevron-down")
+
+    //- ═══════ TIMELINE ═══════
+    section#timeline(class="max-w-5xl mx-auto px-6 py-24 timeline")
+      h2(class="text-center section-label uppercase mb-20", data-aos="fade-up") Linha do Tempo Factual
+
+      div(class="relative mb-16 md:mb-24", data-aos="fade-up")
+        div(class="timeline-dot")
+        div(class="md:grid md:grid-cols-2 md:gap-12 ml-14 md:ml-0")
+          div(class="flex md:justify-end")
+            div(class="card max-w-md w-full p-6 md:text-right")
+              span(class="font-mono text-xs font-semibold", style="color:#00e5cc") 1956
+              h3(class="text-xl font-bold text-white mt-2 mb-3") Dartmouth e a cunhagem do termo
+              p(class="text-slate-400 text-sm leading-relaxed") John McCarthy, Marvin Minsky, Nathaniel Rochester e Claude Shannon organizam a conferência de verão em Dartmouth, onde o termo "Inteligência Artificial" é oficialmente cunhado. O evento é considerado o marco fundador da IA como campo formal.
+              cite(class="block text-xs text-slate-500 mt-4 pt-4 border-t border-slate-800 not-italic") McCarthy et al. (1955). Dartmouth Summer Research Project on Artificial Intelligence.
+          div(class="hidden md:block")
+
+      div(class="relative mb-16 md:mb-24", data-aos="fade-up")
+        div(class="timeline-dot")
+        div(class="md:grid md:grid-cols-2 md:gap-12 ml-14 md:ml-0")
+          div(class="hidden md:block")
+          div(class="flex md:justify-start")
+            div(class="card max-w-md w-full p-6")
+              span(class="font-mono text-xs font-semibold", style="color:#00e5cc") 1959
+              h3(class="text-xl font-bold text-white mt-2 mb-3") Selfridge e o Pandemonium
+              p(class="text-slate-400 text-sm leading-relaxed") Oliver Selfridge publica "Pandemonium: A Paradigm for Learning", introduzindo entidades autônomas chamadas "demônios" — pequenos programas especializados que operam em paralelo para reconhecimento de padrões. É a raiz filosófica dos agentes como sistemas independentes.
+              cite(class="block text-xs text-slate-500 mt-4 pt-4 border-t border-slate-800 not-italic") Selfridge, O. G. (1959). Pandemonium: A paradigm for learning.
+          div(class="hidden md:block")
+
+      div(class="relative mb-16 md:mb-24", data-aos="fade-up")
+        div(class="timeline-dot")
+        div(class="md:grid md:grid-cols-2 md:gap-12 ml-14 md:ml-0")
+          div(class="flex md:justify-end")
+            div(class="card max-w-md w-full p-6 md:text-right")
+              span(class="font-mono text-xs font-semibold", style="color:#00e5cc") 1973
+              h3(class="text-xl font-bold text-white mt-2 mb-3") Carl Hewitt e o Modelo de Atores
+              p(class="text-slate-400 text-sm leading-relaxed") Hewitt propõe o modelo de atores: agentes encapsulam estado e comportamento, comunicam-se por mensagens assíncronas e podem criar outros atores. É o alicerce teórico dos sistemas distribuídos e da concorrência moderna.
+              cite(class="block text-xs text-slate-500 mt-4 pt-4 border-t border-slate-800 not-italic") Hewitt, C., Bishop, P., & Steiger, R. (1973). A Universal Modular ACTOR Formalism.
+          div(class="hidden md:block")
+
+      div(class="relative mb-16 md:mb-24", data-aos="fade-up")
+        div(class="timeline-dot")
+        div(class="md:grid md:grid-cols-2 md:gap-12 ml-14 md:ml-0")
+          div(class="hidden md:block")
+          div(class="flex md:justify-start")
+            div(class="card max-w-md w-full p-6")
+              span(class="font-mono text-xs font-semibold", style="color:#00e5cc") 1977
+              h3(class="text-xl font-bold text-white mt-2 mb-3") Victor Lesser e os Sistemas Multiagentes
+              p(class="text-slate-400 text-sm leading-relaxed") Lesser pioneira a Inteligência Artificial Distribuída (DAI) e os sistemas multiagentes (MAS), estudando como agentes independentes cooperam, coordenam e negociam para resolver problemas complexos coletivamente.
+              cite(class="block text-xs text-slate-500 mt-4 pt-4 border-t border-slate-800 not-italic") Lesser, V. R., & Erman, L. D. (1977). A Retrospective View of the Hearsay-II Architecture.
+          div(class="hidden md:block")
+
+      div(class="relative mb-16 md:mb-24", data-aos="fade-up")
+        div(class="timeline-dot")
+        div(class="md:grid md:grid-cols-2 md:gap-12 ml-14 md:ml-0")
+          div(class="flex md:justify-end")
+            div(class="card max-w-md w-full p-6 md:text-right")
+              span(class="font-mono text-xs font-semibold", style="color:#00e5cc") 1995
+              h3(class="text-xl font-bold text-white mt-2 mb-3") O espectro dos agentes
+              p(class="text-slate-400 text-sm leading-relaxed") Michael Wooldridge e Nicholas Jennings classificam agentes ao longo de um espectro — de reativos a deliberativos, de não cognitivos a orientados a objetivos. O trabalho consolida a aplicação prática de agentes em robótica e software empresarial.
+              cite(class="block text-xs text-slate-500 mt-4 pt-4 border-t border-slate-800 not-italic") Wooldridge, M., & Jennings, N. R. (1995). Intelligent Agents: Theory and Practice.
+          div(class="hidden md:block")
+
+      div(class="relative mb-16 md:mb-24", data-aos="fade-up")
+        div(class="timeline-dot")
+        div(class="md:grid md:grid-cols-2 md:gap-12 ml-14 md:ml-0")
+          div(class="hidden md:block")
+          div(class="flex md:justify-start")
+            div(class="card max-w-md w-full p-6")
+              span(class="font-mono text-xs font-semibold", style="color:#00e5cc") 2022
+              h3(class="text-xl font-bold text-white mt-2 mb-3") LangChain e a orquestração de LLMs
+              p(class="text-slate-400 text-sm leading-relaxed") LangChain é lançado, conectando LLMs a ferramentas, memória e fontes externas por meio de composição. O framework populariza a ideia de agentes baseados em LLM com cadeias de raciocínio e ação.
+              cite(class="block text-xs text-slate-500 mt-4 pt-4 border-t border-slate-800 not-italic") Chase, H. et al. (2022). LangChain.
+          div(class="hidden md:block")
+
+      div(class="relative mb-16 md:mb-24", data-aos="fade-up")
+        div(class="timeline-dot")
+        div(class="md:grid md:grid-cols-2 md:gap-12 ml-14 md:ml-0")
+          div(class="flex md:justify-end")
+            div(class="card max-w-md w-full p-6 md:text-right")
+              span(class="font-mono text-xs font-semibold", style="color:#00e5cc") 2023
+              h3(class="text-xl font-bold text-white mt-2 mb-3") AutoGPT, BabyAGI e a era dos agentes autônomos
+              p(class="text-slate-400 text-sm leading-relaxed") AutoGPT e BabyAGI popularizam agentes que definem seus próprios objetivos e executam tarefas de longo prazo. No mesmo ano, ReAct estabelece o loop "Raciocínio + Ação" e Toolformer demonstra uso autônomo de ferramentas via APIs.
+              cite(class="block text-xs text-slate-500 mt-4 pt-4 border-t border-slate-800 not-italic") Significant Gravitas (2023). Auto-GPT; Nakajima (2023). BabyAGI; Yao et al. (2022). ReAct; Schick et al. (2023). Toolformer.
+          div(class="hidden md:block")
+
+      //- ═══════ 2025–2026 — MASCOTES INLINE SVG ═══════
+      div(class="relative mb-8", data-aos="fade-up")
+        div(class="timeline-dot")
+        div(class="ml-14 md:ml-0 md:flex md:justify-center")
+          div(class="card card-featured max-w-3xl w-full p-8 md:p-10")
+            div(class="text-center mb-6")
+              span(class="font-mono text-xs font-semibold", style="color:#00e5cc") 2025–2026
+              h3(class="text-2xl md:text-3xl font-black text-white mt-2 mb-3") Dreaming e REM: a consolidação de memória
+              p(class="text-slate-400 text-sm leading-relaxed max-w-xl mx-auto")
+                | A memória de agentes torna-se um problema arquitetural explícito. 
+                strong(class="text-white") Dreaming
+                |  (Anthropic, maio de 2026; OpenAI, junho de 2026) é um processo assíncrono que lê transcrições de sessões passadas e produz um novo armazenamento de memória consolidado, sem modificar o original. 
+                strong(class="text-white") REM (Reusable Experience Memory)
+                |  gerencia o ciclo de vida da memória dentro do loop "pensar-agir" do agente, decidindo o que armazenar, quando recuperar e o que esquecer.
+
+            div(class="flex gap-10 md:gap-16 justify-center items-end flex-wrap mt-8")
+              //- Molty — SVG inline (OpenClaw)
+              div(class="text-center")
+                svg(viewBox="0 0 120 120", fill="none", xmlns="http://www.w3.org/2000/svg", class="w-28 h-28 md:w-32 md:h-32 mx-auto mascot-img", role="img", aria-label="Molty, mascote do OpenClaw")
+                  path(class="claw-body", d="M60 10 C30 10 15 35 15 55 C15 75 30 95 45 100 L45 110 L55 110 L55 100 C55 100 60 102 65 100 L65 110 L75 110 L75 100 C90 95 105 75 105 55 C105 35 90 10 60 10Z", fill="url(#lobster-gradient)")
+                  path(class="claw-left", d="M20 45 C5 40 0 50 5 60 C10 70 20 65 25 55 C28 48 25 45 20 45Z", fill="url(#lobster-gradient)")
+                  path(class="claw-right", d="M100 45 C115 40 120 50 115 60 C110 70 100 65 95 55 C92 48 95 45 100 45Z", fill="url(#lobster-gradient)")
+                  path(class="antenna", d="M45 15 Q35 5 30 8", stroke="#ff5a50", stroke-width="2", stroke-linecap="round")
+                  path(class="antenna", d="M75 15 Q85 5 90 8", stroke="#ff5a50", stroke-width="2", stroke-linecap="round")
+                  circle(cx="45", cy="35", r="6", fill="#050810")
+                  circle(cx="75", cy="35", r="6", fill="#050810")
+                  circle(class="eye-glow", cx="46", cy="34", r="2", fill="#00e5cc")
+                  circle(class="eye-glow", cx="76", cy="34", r="2", fill="#00e5cc")
+                  defs
+                    linearGradient(id="lobster-gradient", x1="0%", y1="0%", x2="100%", y2="100%")
+                      stop(offset="0%", stop-color="#ff5a50")
+                      stop(offset="100%", stop-color="#991b1b")
+                p(class="text-xs text-slate-500 mt-3 font-mono") Molty · OpenClaw
+              //- Claw’d — GIF (Claude Code)
+              div(class="text-center")
+                img(src="https://cleverhack.com/img/clawd.gif", alt="Claw’d, mascote do Claude Code", class="mascot-img w-28 h-28 md:w-32 md:h-32 mx-auto object-contain", loading="lazy")
+                p(class="text-xs text-slate-500 mt-3 font-mono") Claw’d · Claude Code
+
+            cite(class="block text-xs text-slate-500 mt-8 pt-6 border-t border-slate-800 text-center not-italic")
+              | Anthropic (2026). Claude Managed Agents: Dreams. OpenAI (2026). Dreaming V3. REM (2025–2026). What to Store, When to Recall, What to Forget.
+
+    //- ═══════ DREAMING & REM ═══════
+    section(class="max-w-4xl mx-auto px-6 py-20")
+      div(class="text-center mb-12", data-aos="fade-up")
+        span(class="section-label uppercase") Aprofundamento
+        h2(class="text-3xl md:text-4xl font-black text-white mt-3") Dreaming e REM: como funcionam
+
+      div(class="grid md:grid-cols-2 gap-8")
+        div(class="card p-6", data-aos="fade-up")
+          h3(class="text-lg font-bold text-white mb-3")
+            i(class="fa-solid fa-moon mr-2", style="color:#00e5cc")
+            | Dreaming
+          ul(class="text-sm text-slate-400 space-y-2 list-disc list-inside")
+            li Processo assíncrono executado entre sessões.
+            li Lê o armazenamento de memória existente e de 1 a 100 transcrições de sessões.
+            li Produz um novo armazenamento consolidado; o original nunca é modificado.
+            li Funde duplicatas, remove informações obsoletas e extrai padrões recorrentes como "playbooks" estruturados.
+            li Dois modos: totalmente automatizado ou com revisão humana (human-in-the-loop).
+
+        div(class="card p-6", data-aos="fade-up", data-aos-delay="150")
+          h3(class="text-lg font-bold text-white mb-3")
+            i(class="fa-solid fa-brain mr-2", style="color:#00e5cc")
+            | REM (Reusable Experience Memory)
+          ul(class="text-sm text-slate-400 space-y-2 list-disc list-inside")
+            li Gerencia o ciclo de vida da memória dentro do loop "pensar-agir" do agente.
+            li Três decisões explícitas: o que armazenar, quando recuperar e o que esquecer.
+            li Armazena experiências como documentos organizados por fase, reduzindo o volume em duas ordens de magnitude em relação à trajetória bruta.
+            li Recuperação só ocorre quando o agente encontra dificuldade, reduzindo custos.
+            li Alcançou 68,7% de match@1 no benchmark SWE-ContextBench Lite, superando sistemas anteriores (55,6%).
+
+    //- ═══════ REFERÊNCIAS ═══════
+    section(class="max-w-3xl mx-auto px-6 py-20", data-aos="fade-up")
+      div(class="text-center mb-12")
+        span(class="section-label uppercase") Fontes
+        h2(class="text-3xl md:text-4xl font-black text-white mt-3") Referências
+
+      -
+        var refs = [
+          "McCarthy, J., Minsky, M., Rochester, N., & Shannon, C. (1955). A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence.",
+          "Selfridge, O. G. (1959). Pandemonium: A Paradigm for Learning. Proceedings of the Symposium on Mechanisation of Thought Processes.",
+          "Hewitt, C., Bishop, P., & Steiger, R. (1973). A Universal Modular ACTOR Formalism for Artificial Intelligence. IJCAI.",
+          "Lesser, V. R., & Erman, L. D. (1977). A Retrospective View of the Hearsay-II Architecture. IJCAI.",
+          "Wooldridge, M., & Jennings, N. R. (1995). Intelligent Agents: Theory and Practice. Knowledge Engineering Review, 10(2), 115–152.",
+          "Yao, S. et al. (2022). ReAct: Synergizing Reasoning and Acting in Language Models. ICLR 2023.",
+          "Schick, T. et al. (2023). Toolformer: Language Models Can Teach Themselves to Use Tools. NeurIPS 2023.",
+          "Chase, H. et al. (2022). LangChain: Building Applications with LLMs through Composability. GitHub.",
+          "Significant Gravitas (2023). Auto-GPT: An Autonomous GPT-4 Experiment. GitHub.",
+          "Nakajima, Y. (2023). BabyAGI. GitHub.",
+          "Anthropic (2026). Claude Managed Agents: Dreams. Documentação oficial.",
+          "OpenAI (2026). Dreaming V3 for ChatGPT. Anúncio oficial.",
+          "REM (2025–2026). What to Store, When to Recall, What to Forget in Experience Memory for Coding Agents. arXiv:2610.27377."
+        ]
+      ol(class="space-y-3")
+        each ref, i in refs
+          li(class="ref-item flex gap-4 p-4 rounded-xl border border-slate-800 bg-slate-900/30")
+            span(class="font-mono text-xs mt-0.5 shrink-0", style="color:rgba(0,229,204,.7)")= String(i + 1).padStart(2, '0')
+            span(class="text-sm text-slate-400 leading-relaxed")= ref
+
+    //- ═══════ FOOTER ═══════
+    footer(class="text-center py-10 px-6 border-t border-slate-900")
+      p(class="text-xs text-slate-600")
+        | Conteúdo factual com referências. As imagens dos mascotes pertencem aos seus respectivos projetos.
+
+    script(src="https://unpkg.com/aos@next/dist/aos.js")
+    script.
+      AOS.init({ once: true, duration: 800, offset: 120, easing: 'ease-out-cubic' });
