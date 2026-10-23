@@ -41,7 +41,7 @@ html(lang="pt-BR")
       .section-label { color: #00e5cc; letter-spacing: .3em; font-size: .75rem; font-weight: 600; }
 
   body(class="bg-grid")
-    //- ═══════ HEADER ═══════
+    //- HEADER 
     header(class="relative min-h-screen flex items-center justify-center overflow-hidden px-6")
       div(class="absolute inset-0 hero-grad")
       div(class="absolute top-10 left-10 w-72 h-72 rounded-full opacity-20 blob", style="background:#ff5a50")
@@ -67,7 +67,7 @@ html(lang="pt-BR")
       div(class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-500")
         i(class="fa-solid fa-chevron-down")
 
-    //- ═══════ TIMELINE ═══════
+    //- TIMELINE
     section#timeline(class="max-w-5xl mx-auto px-6 py-24 timeline")
       h2(class="text-center section-label uppercase mb-20", data-aos="fade-up") Linha do Tempo Factual
 
@@ -151,7 +151,7 @@ html(lang="pt-BR")
               cite(class="block text-xs text-slate-500 mt-4 pt-4 border-t border-slate-800 not-italic") Significant Gravitas (2023). Auto-GPT; Nakajima (2023). BabyAGI; Yao et al. (2022). ReAct; Schick et al. (2023). Toolformer.
           div(class="hidden md:block")
 
-      //- ═══════ 2025–2026 — MASCOTES INLINE SVG ═══════
+      //- 2025–2026 — MASCOTES INLINE SVG
       div(class="relative mb-8", data-aos="fade-up")
         div(class="timeline-dot")
         div(class="ml-14 md:ml-0 md:flex md:justify-center")
@@ -192,7 +192,7 @@ html(lang="pt-BR")
             cite(class="block text-xs text-slate-500 mt-8 pt-6 border-t border-slate-800 text-center not-italic")
               | Anthropic (2026). Claude Managed Agents: Dreams. OpenAI (2026). Dreaming V3. REM (2025–2026). What to Store, When to Recall, What to Forget.
 
-    //- ═══════ DREAMING & REM ═══════
+    //- DREAMING & REM
     section(class="max-w-4xl mx-auto px-6 py-20")
       div(class="text-center mb-12", data-aos="fade-up")
         span(class="section-label uppercase") Aprofundamento
@@ -221,7 +221,7 @@ html(lang="pt-BR")
             li Recuperação só ocorre quando o agente encontra dificuldade, reduzindo custos.
             li Alcançou 68,7% de match@1 no benchmark SWE-ContextBench Lite, superando sistemas anteriores (55,6%).
 
-    //- ═══════ REFERÊNCIAS ═══════
+    //- REFERÊNCIAS
     section(class="max-w-3xl mx-auto px-6 py-20", data-aos="fade-up")
       div(class="text-center mb-12")
         span(class="section-label uppercase") Fontes
@@ -249,7 +249,7 @@ html(lang="pt-BR")
             span(class="font-mono text-xs mt-0.5 shrink-0", style="color:rgba(0,229,204,.7)")= String(i + 1).padStart(2, '0')
             span(class="text-sm text-slate-400 leading-relaxed")= ref
 
-    //- ═══════ FOOTER ═══════
+    //- FOOTER
     footer(class="text-center py-10 px-6 border-t border-slate-900")
       p(class="text-xs text-slate-600")
         | Conteúdo factual com referências. As imagens dos mascotes pertencem aos seus respectivos projetos.

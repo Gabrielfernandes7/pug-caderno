@@ -23,7 +23,7 @@ mixin mascot(options)
     role="img"
     aria-label="Caramelo vira-lata intelectual de terno, gravata e óculos de leitura"
   )
-    //- ===== TERNO =====
+    //- TERNO
     //- Paletó
     path(d="M70 400 Q70 290 160 265 L240 265 Q330 290 330 400 Z" fill=c.suit)
 
@@ -43,31 +43,28 @@ mixin mascot(options)
     //- Botão do paletó
     circle(cx="200" cy="392" r="3" fill=c.suitDark)
 
-    //- ===== ORELHAS =====
+    //- ORELHAS
     path(d="M108 135 Q92 65 120 52 Q148 65 155 120 Z" fill=c.dark)
     path(d="M122 128 Q114 88 126 76 Q140 88 144 122 Z" fill=c.base)
     path(d="M292 135 Q332 108 335 152 Q328 195 292 180 Q278 158 285 138 Z" fill=c.dark)
     path(d="M296 145 Q318 132 320 155 Q315 180 296 172 Q288 158 292 145 Z" fill=c.base)
 
-    //- ===== CABEÇA =====
+    //- CABEÇA
     ellipse(cx="200" cy="175" rx="100" ry="95" fill=c.base)
 
-    //- Tufo de pelo no topo
-    path(d="M185 80 Q195 62 203 80 Q210 64 217 82" stroke=c.dark stroke-width="2" fill="none" stroke-linecap="round")
-
-    //- ===== FOCINHO =====
+    //- FOCINHO
     ellipse(cx="200" cy="225" rx="52" ry="38" fill=c.light)
 
-    //- ===== NARIZ =====
+    //- NARIZ
     path(d="M186 205 Q200 195 214 205 Q214 218 200 220 Q186 218 186 205 Z" fill=c.nose)
     ellipse(cx="194" cy="205" rx="3" ry="2" fill="#8a7058")
 
-    //- ===== BOCA =====
+    //- BOCA
     path(d=e.mouth stroke=c.nose stroke-width="2.5" fill="none" stroke-linecap="round")
     if e.tongue
       path(d="M193 256 Q195 268 200 270 Q205 268 207 256 Z" fill=c.tongue)
 
-    //- ===== OLHOS =====
+    //- OLHOS
     circle(cx="162" cy="150" r="20" fill=c.eye)
     circle(cx="238" cy="150" r="20" fill=c.eye)
     circle(cx=lpx cy=lpy r="11" fill=c.pupil)
@@ -75,11 +72,11 @@ mixin mascot(options)
     circle(cx=lpx - 4 cy=lpy - 4 r="3.5" fill="white")
     circle(cx=rpx - 4 cy=rpy - 4 r="3.5" fill="white")
 
-    //- ===== SOBRANCELHAS =====
+    //- SOBRANCELHAS
     path(d="M148 " + lb + " Q155 " + (lb - 6) + " 164 " + (lb - 2) stroke=c.dark stroke-width="4" stroke-linecap="round" fill="none")
     path(d="M236 " + (lb - 2) + " Q245 " + (lb - 6) + " 252 " + lb stroke=c.dark stroke-width="4" stroke-linecap="round" fill="none")
 
-    //- ===== ÓCULOS =====
+    //- ÓCULOS
     circle(cx="162" cy="150" r="23" fill="none" stroke=c.glasses stroke-width="3")
     circle(cx="238" cy="150" r="23" fill="none" stroke=c.glasses stroke-width="3")
     path(d="M185 148 Q200 138 215 148" fill="none" stroke=c.glasses stroke-width="3" stroke-linecap="round")
